@@ -118,11 +118,11 @@ function create() {
 }
 
 function update() {
-    if (currentWitdth >= 250) {
+    if (currentWitdth >= 300) {
         this.scene.start('LoseScene', { score: score });
     }
 
-    if ((currentWitdth < 250) && (isDropping == false) && (isColliding == false)) {
+    if ((currentWitdth < 300) && (isDropping == false) && (isColliding == false)) {
         targetSquare.clear();
         currentWitdth += EXPAND_SPEED;
         currentHeight += EXPAND_SPEED;
