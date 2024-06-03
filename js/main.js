@@ -1,5 +1,7 @@
 const WIDTH = 360;
 const HEIGHT = 800;
+const DROP_SPEED = 2;
+const EXPAND_SPEED = 1;
 
 const mainConfig = {
     key: 'MainScene',
@@ -120,8 +122,8 @@ function update() {
 
     if ((currentWitdth < 250) && (isDropping == false) && (isColliding == false)) {
         targetSquare.clear();
-        currentWitdth += 1;
-        currentHeight += 1;
+        currentWitdth += EXPAND_SPEED;
+        currentHeight += EXPAND_SPEED;
 
         targetSquare.fillStyle(0xff0000, 1.0);
         targetSquare.fillRect(calculateAnchorX(), calculateAnchorY(), currentWitdth, currentHeight);
@@ -129,7 +131,7 @@ function update() {
         if (isDropping) {
             targetSquare.clear();
 
-            verticalOffset += 1;
+            verticalOffset += DROP_SPEED;
             var squareX = calculateAnchorX();
             var squareY = calculateAnchorY() + verticalOffset;
             targetSquare.fillStyle(0xff0000, 1.0);
