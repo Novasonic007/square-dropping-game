@@ -37,7 +37,8 @@ let isColliding;
 let score = 0;
 let scoreText;
 
-let upperWidth;
+let upperWidth = 50;
+let isPaused = false;
 
 function refreshState(self) {
     currentWitdth = 50;
@@ -45,7 +46,8 @@ function refreshState(self) {
     isDropping = false;
     verticalOffset = 0;
     isColliding = false;
-    upperWidth = getRandomInt(30, 100);
+        
+    upperWidth = getRandomInt(30, 120);
 }
 
 function preload() { 
@@ -160,9 +162,17 @@ function update() {
                 score += 1;
                 scoreText.setText('Score: ' + score);
 
-                alert("You got 1 point!");
-
-                refreshState(this);
+                isPaused = true;
+                this.time.addEvent({
+                    delay: 2000,
+                    callback: () => {
+                        refreshState(this);
+                        updateRectangles()
+                        isPaused = false;
+                    },
+                    callbackScope: this
+                });
+                
             }
         } else {
             targetSquare.clear();
