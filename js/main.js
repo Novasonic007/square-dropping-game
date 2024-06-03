@@ -51,7 +51,7 @@ function create() {
     targetSquare.fillStyle(0xff0000, 1.0);
     targetSquare.fillRect(calculateAnchorX(), calculateAnchorY(), currentWitdth, currentHeight);
 
-    let upperWidth = getRandomInt(30, 100);
+    let upperWidth = getRandomInt(70, 100);
 
     upperLeftRectangle = this.add.graphics();
     upperLeftRectangle.fillStyle(0xff0000, 1.0);
